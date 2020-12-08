@@ -4,7 +4,8 @@
   "description": "Course group project",
   "main": "main.js",
   "dependencies": {
-    "ejs": "^3.1.5"
+    "ejs": "^3.1.5",
+    "node": "^15.3.0"
   },
   "devDependencies": {},
   "scripts": {
