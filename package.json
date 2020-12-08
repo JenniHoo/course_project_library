@@ -1,0 +1,29 @@
+{
+  "name": "course_project_library",
+  "version": "1.0.0",
+  "description": "Course group project",
+  "main": "main.js",
+  "dependencies": {
+    "ejs": "^3.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenniHoo/course_project_library.git"
+  },
+  "keywords": [
+    "node",
+    "ejs",
+    "library",
+    "course-project"
+  ],
+  "author": "Backman, Heikkilä, Kujanpää, Kyynäräinen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenniHoo/course_project_library/issues"
+  },
+  "homepage": "https://github.com/JenniHoo/course_project_library#readme"
+}
