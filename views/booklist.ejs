@@ -1,0 +1,24 @@
+<h2>Booklist</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Book name</th>
+      <th>Writer</th>
+      <th>Shelf</th>
+      <th>Available for loan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% books.forEach(book => { %>
+    <tr>
+      <td>
+        <%= book.fullName %>
+      </td>
+      <td>
+        <%= book.email %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
