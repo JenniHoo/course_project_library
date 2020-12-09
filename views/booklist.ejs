@@ -13,10 +13,21 @@
     <% books.forEach(book => { %>
     <tr>
       <td>
-        <%= book.fullName %>
+        <%= book._id %>
       </td>
       <td>
-        <%= book.email %>
+        <a href="<%= `/${book._id}`%>">
+            <%= book.name %>
+        </a>
+      </td>
+      <td>
+        <%= book.author %>
+      </td>
+      <td>
+        <%= book.shelfLocation %>
+      </td>
+      <td>
+        <%= book.numberAvailable %>
       </td>
     </tr>
     <% }); %>

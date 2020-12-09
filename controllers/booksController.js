@@ -11,6 +11,7 @@ const getBookParams = body => {
 
 module.exports = {
    index: (req, res, next) => {
+
         Book.find({})
             .then(books => {
                 res.locals.books = books;
@@ -24,6 +25,23 @@ module.exports = {
 
    indexView: (req, res) => {
         res.render("booklist");
+   },
+
+   show: (req, res, next) => {
+        let bookID = req.params.id;
+        Book.findById(bookID)
+            .then(book => {
+                res.locals.book = book;
+                next();
+            })
+            .catch(error => {
+                console.log(`Could not find the book ID: ${error.message}`);
+                next(error);
+            });
+   },
+
+   showView: (req, res) => {
+        res.render("bookinfo");
    },
 
     create: (req, res, next) => {
