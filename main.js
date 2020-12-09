@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const router = express.Router();
 const mongoose = require("mongoose");
+const layouts = require("express-ejs-layouts");
 const booksController = require("./controllers/booksController.js");
 const indexController = require("./controllers/indexController.js");
 
@@ -18,7 +19,9 @@ app.use(express.urlencoded({
 router.get("/", indexController.index);
 router.post("/books/create", booksController.create, booksController.redirectView);
 
+app.use(layouts);
 app.use("/", router);
+app.use(express.static(__dirname + '/public'));
 
 mongoose.connect("mongodb://localhost:27017/library_db", {
     useNewUrlParser: true

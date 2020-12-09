@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1">
+	<title>Online Library</title>
+	<link rel="shortcut icon" type="image/png" href="images/icon.jpg" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/basic.css">
+</head>
+
+<body>
+	<%- include ('partials/navigation') %>
+
+	<div id="nav">
+		<div class="col-sm nav-align">
+			<h1 id="title">Online Library</h1>
+		</div>
+		<div class="col-sm nav-align">
+			<a href="/">
+				<span class="button">Home</span>
+			</a>
+			<a href="/booklist.ejs">
+				<span class="button">Booklist</span>
+			</a>
+			<a href="/login.ejs">
+				<span class="button">Login/Logout</span>
+			</a>
+		</div>
+	</div>
+
+	<div class="container">
+		<%- body %>
+	</div>
+
+	<%- include ('partials/footer') %>
+</body>
+
+</html>
