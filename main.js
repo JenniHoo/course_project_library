@@ -21,15 +21,15 @@ app.use(express.static(__dirname + '/public'));
 
 router.get("/", indexController.index);
 
+// User routes
+router.get("/users", usersController.index, usersController.indexView);
+router.get("/login", usersController.login);
+
 // Book routes
 router.get("/booklist", booksController.index, booksController.indexView);
 router.get("/:id", booksController.show, booksController.showView);
 router.post("/books/create", booksController.create, booksController.redirectView);
 router.delete("/books/delete", booksController.delete, booksController.redirectView);
-
-// User routes
-router.get("/users", usersController.index, usersController.indexView);
-router.get("/login", usersController.login);
 
 app.use(layouts);
 app.use("/", router);
