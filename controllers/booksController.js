@@ -10,6 +10,40 @@ const getBookParams = body => {
 }
 
 module.exports = {
+   index: (req, res, next) => {
+
+        Book.find({})
+            .then(books => {
+                res.locals.books = books;
+                next();
+            })
+            .catch(error => {
+                console.log(`Couldn't get books: ${error.message}`)
+                next(error);
+            })
+   },
+
+   indexView: (req, res) => {
+        res.render("booklist");
+   },
+
+   show: (req, res, next) => {
+        let bookID = req.params.id;
+        Book.findById(bookID)
+            .then(book => {
+                res.locals.book = book;
+                next();
+            })
+            .catch(error => {
+                console.log(`Could not find the book ID: ${error.message}`);
+                next(error);
+            });
+   },
+
+   showView: (req, res) => {
+        res.render("bookinfo");
+   },
+
     create: (req, res, next) => {
         let bookParams = getBookParams(req.body);
         console.log(bookParams);
@@ -34,5 +68,18 @@ module.exports = {
         else {
             next();
         }
+    },
+
+    delete: (req, res, next) =>{
+        let bookID = req.params.id;
+        Book.findByIdAndDelete(bookID)
+        .then(() => {
+            res.locals.redirect = "/books";
+            next();
+        })
+        .catch(error => {
+            console.log(`Couldn't delete book: ${error.message}`);
+            next();
+        }) 
     }
 }
