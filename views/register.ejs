@@ -17,3 +17,38 @@
     <input type="submit" name="" value="Submit">
   </form>
 </div>
+
+<script type="text/javascript">
+
+  function checkPassword(str) {
+    var re = /^(?=.*\d)(?=.*[]a-z)(?=.*{6,}$/;
+    return re.test(str);
+  }
+
+  function checkForm(form) {
+    if (form.username.value == "") {
+      alert("Error: Käyttäjänimi ei voi olla tyhjä!");
+      form.username.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if (!re.test(form.username.value)) {
+      alert("Error: Käyttäjänimi saa  sisältää vain kirjaimia, numeroita ja alaviivan!");
+      form.username.focus();
+      return false;
+    }
+    if (form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if (!checkPassword(form.pwd1.value)) {
+        alert("Syöttämäsi salasana on virheellinen!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Tarkasta, että olet syöttänyt ja vahvistanut salasanasi!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
