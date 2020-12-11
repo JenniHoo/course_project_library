@@ -1,4 +1,14 @@
 const User = require("../models/user");
+const passport = require("passport");
+const user = require("../models/user");
+const getUserParams = body => {
+    return {
+        username: body.username,
+        email: body.email,
+        password: body.password
+    };
+};
+
 
 module.exports = {
     index: (req, res, next) => {
@@ -15,6 +25,41 @@ module.exports = {
    indexView: (req, res) => {
         res.render("users/index");
    },
+ 
+   redirectView: (req, res, next) => {
+        let redirectPath = res.locals.redirect;
+        if(redirectPath){
+            res.redirect(redirectPath); 
+        }
+        else {
+            next();
+        }
+   },
+
+    new: (req, res) => {
+        res.render("register");
+    },
+
+    create: (req, res, next) => {
+        if(req.skip){
+            next();
+        }  
+        let newUser = new User(getUserParams(req.body));
+        console.log(newUser)
+        User.register(newUser, req.body.password, (error, user) => {
+            if(user){
+                console.log(`${user.name} created!`);
+                res.locals.redirect = "/";
+                next();
+            } 
+            else {
+                console.log(`Could not create account ${user.name}: ${error.message}.`);
+                res.locals.redirect = "/register";
+                next();
+            }
+        });
+    },
+
     login: (req, res) => {
         res.render("login");
     }
