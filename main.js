@@ -27,7 +27,7 @@ router.get("/login", usersController.login);
 
 // Book routes
 router.get("/booklist", booksController.index, booksController.indexView);
-router.get("/:id", booksController.show, booksController.showView);
+router.get("/books/:id", booksController.show, booksController.showView);
 router.post("/books/create", booksController.create, booksController.redirectView);
 router.delete("/books/delete", booksController.delete, booksController.redirectView);
 
