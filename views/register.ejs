@@ -1,5 +1,5 @@
 <div class="col-sm-6">
-  <img src="images/cat.jpg" alt="">
+  <img src="images/cat.jpg" alt="Cat picture">
 </div>
 <div class="col-sm-6">
   <h1>Register</h1>
@@ -27,24 +27,24 @@
 
   function checkForm(form) {
     if (form.username.value == "") {
-      alert("Error: Käyttäjänimi ei voi olla tyhjä!");
+      alert("Error: Username cannot be empty!");
       form.username.focus();
       return false;
     }
     re = /^\w+$/;
     if (!re.test(form.username.value)) {
-      alert("Error: Käyttäjänimi saa  sisältää vain kirjaimia, numeroita ja alaviivan!");
+      alert("Error: Username can only contain letters, numbers and underscores!");
       form.username.focus();
       return false;
     }
     if (form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
       if (!checkPassword(form.pwd1.value)) {
-        alert("Syöttämäsi salasana on virheellinen!");
+        alert("Password does not meet requirements!");
         form.pwd1.focus();
         return false;
       }
     } else {
-      alert("Error: Tarkasta, että olet syöttänyt ja vahvistanut salasanasi!");
+      alert("Error: Check your password!");
       form.pwd1.focus();
       return false;
     }
