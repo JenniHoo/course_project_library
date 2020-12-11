@@ -1,5 +1,5 @@
 <div class="col-sm-6">
-  <img src="images/cat.jpg" alt="">
+  <img src="images/cat.jpg" alt="Cat picture">
 </div>
 <div class="col-sm-6">
   <h1>Register</h1>
@@ -17,3 +17,38 @@
     <input type="submit" name="" value="Submit">
   </form>
 </div>
+
+<script type="text/javascript">
+
+  function checkPassword(str) {
+    var re = /^(?=.*\d)(?=.*[]a-z)(?=.*{6,}$/;
+    return re.test(str);
+  }
+
+  function checkForm(form) {
+    if (form.username.value == "") {
+      alert("Error: Username cannot be empty!");
+      form.username.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if (!re.test(form.username.value)) {
+      alert("Error: Username can only contain letters, numbers and underscores!");
+      form.username.focus();
+      return false;
+    }
+    if (form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if (!checkPassword(form.pwd1.value)) {
+        alert("Password does not meet requirements!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Check your password!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
