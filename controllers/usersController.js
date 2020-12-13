@@ -53,7 +53,7 @@ module.exports = {
                 next();
             } 
             else {
-                console.log(`Could not create account ${user.name}: ${error.message}.`);
+                console.log(` Could not create account: ${error.message}.`);
                 res.locals.redirect = "/register";
                 next();
             }
