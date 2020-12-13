@@ -39,6 +39,7 @@ router.post("/register/new", usersController.create, usersController.redirectVie
 
 // User routes
 router.get("/login", usersController.login);
+router.post("/login", usersController.authenticate);
 
 // Book routes
 router.get("/booklist", booksController.index, booksController.indexView);

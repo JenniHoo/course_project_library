@@ -2,11 +2,11 @@
 <body>
 
     <h1>Login</h1>
-    <form name="login">
-        Username<input type="text" name="userid" />
-        Password<input type="password" name="passwrd" />
-        <input type="button" onclick="check(this.form)" value="Login">
-        <input type="reset" value="Cancel" />
+    <form name="login" action="/login" method="POST">
+        Username<input type="text" name="username">
+        Password<input type="password" name="password">
+        <input type="submit" value="Login">
+        <input type="reset" value="Cancel">
     </form>
 
     <script language="javascript">

@@ -1,6 +1,5 @@
 const User = require("../models/user");
 const passport = require("passport");
-const user = require("../models/user");
 const getUserParams = body => {
     return {
         username: body.username,
@@ -48,12 +47,12 @@ module.exports = {
         console.log(newUser)
         User.register(newUser, req.body.password, (error, user) => {
             if(user){
-                console.log(`${user.name} created!`);
+                console.log(`Account ${user.name} created!`);
                 res.locals.redirect = "/";
                 next();
             } 
             else {
-                console.log(` Could not create account: ${error.message}.`);
+                console.log(`Could not create account: ${error.message}.`);
                 res.locals.redirect = "/register";
                 next();
             }
@@ -62,5 +61,14 @@ module.exports = {
 
     login: (req, res) => {
         res.render("login");
+    },
+    authenticate: passport.authenticate("local", {
+        successRedirect: "/",
+        failureRedirect: "/login"
+    }),
+    logout: (req, res, next) => {
+        req.logout();
+        res.locals.redirect = "/";
+        next();
     }
 }
