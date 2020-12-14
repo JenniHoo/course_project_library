@@ -1,0 +1,29 @@
+<h2>Book Info</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Book ID</th>
+      <th>Name</th>
+      <th>Writer</th>
+      <th>Shelf</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% books.forEach(book => { %>
+    <tr>
+      <td>
+        <%= book.ID %>
+      </td>
+      <td>
+        <%= book.name %>
+      </td>
+      <td>
+        <%= book.writer %>
+      </td>
+      <td>
+        <%= book.shelf %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
