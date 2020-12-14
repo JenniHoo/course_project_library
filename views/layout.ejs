@@ -27,6 +27,17 @@
 			<a href="/login">
 				<span class="button">Login/Logout</span>
 			</a>
+			<div style="position:absolute; right:15%; top:45%;">
+				<% if(loggedIn){%>
+					<h1> 
+						<%= currentUser.username %>
+					</h1>
+				<%}else{%>
+					<h1>
+						ÄÄÄÄÄÄÄÄÄÄ
+					</h1>
+				<%}%>
+			</div>
 		</div>
 	</div>
 
