@@ -24,20 +24,22 @@
 			<a href="/booklist">
 				<span class="button">Booklist</span>
 			</a>
-			<a href="/login">
-				<span class="button">Login/Logout</span>
-			</a>
-			<div style="position:absolute; right:15%; top:45%;">
-				<% if(loggedIn){%>
-					<h1> 
+			<% if(loggedIn) {%>
+				<a href="/logout">
+					<span class="button">Logout</span>
+				</a>
+				<div id="loggedInUser">
+					<p> 
+						Logged in as 
 						<%= currentUser.username %>
-					</h1>
-				<%}else{%>
-					<h1>
-						ÄÄÄÄÄÄÄÄÄÄ
-					</h1>
-				<%}%>
-			</div>
+					</p>
+				</div>
+			<% } else { %>
+				<a href="/login">
+					<span class="button">Login</span>
+				</a>
+			<% } %>
+
 		</div>
 	</div>
 
