@@ -1,13 +1,19 @@
 <html>
 <body>
-
-    <h1>Login</h1>
-    <form name="login" action="/login" method="POST">
-        Username<input type="text" name="username">
-        Password<input type="password" name="password">
-        <input type="submit" value="Login">
-        <input type="reset" value="Cancel">
+    <h1 class="userFormHeading">Login</h1>
+    <form class="userDetailsForm" name="login" action="/login" method="POST">
+        <h4 class="formFieldName">Username</h4>
+        <input class="userFormField" type="text" name="username"><br>
+        <h4 class="formFieldName">Password</h4>
+        <input class="userFormField" type="password" name="password"><br>
+        <div class="formButtonsContainer">
+            <input class="formButton" type="submit" value="Login">
+            <input class="formButton" type="reset" value="Cancel">
+        </div>
     </form>
+    <p id="registerLink">Not a member yet? 
+        <a href="/register">Register here!</a>
+    </p>
 
     <script language="javascript">
         function check(form) {
@@ -19,9 +25,7 @@
             }
         } 
     </script>
-    <p>Not a member yet? 
-        <a href="/register">Register</a> here!
-    </p>
+
 </body>
 
 </html>

@@ -2,19 +2,21 @@
   <img src="images/cat.jpg" alt="Cat picture">
 </div>
 <div class="col-sm-6">
-  <h1>Register</h1>
-  <p>Enter your info to loan books:</p>
-  <form action="/register/new" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="username" value="">
+  <h1 class="userFormHeading">Register</h1>
+  <p id="registerFormText">Enter your info to loan books:</p>
+  <form class="userDetailsForm" action="/register/new" method="post">
+    <h4 class="formFieldName">Name</h4>
+    <input class="userFormField"type="text" name="username" value="">
     <br>
-    <label for="email">Email</label>
-    <input type="email" name="email" value="">
+    <h4 class="formFieldName">Email</h4>
+    <input class="userFormField" type="email" name="email" value="">
     <br>
-    <label for="password">Password</label>
-    <input type="password" name="password" value="">
+    <h4 class="formFieldName">Password</h4>
+    <input class="userFormField" type="password" name="password" value="">
     <br>
-    <input type="submit" value="Submit">
+    <div class="formButtonsContainer">
+      <input class="formButton" type="submit" value="Submit">
+    </div>
   </form>
 </div>
 
