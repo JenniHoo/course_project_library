@@ -39,6 +39,17 @@
 					<span class="button">Login</span>
 				</a>
 			<% } %>
+			<div id="flashmessageContainer">
+				<% if(flashMessages) {%>
+					<h3 id="flashmessage">
+					<% if(flashMessages.success) {%>
+						<%= flashMessages.success %>
+					<%} else if (flashMessages.error) {%>
+						<%= flashMessages.error %>
+					</h3>
+					<%}%>
+				<%}%>
+			</div>
 
 		</div>
 	</div>

@@ -10,22 +10,7 @@ const getUserParams = body => {
 
 
 module.exports = {
-    index: (req, res, next) => {
-        User.find({})
-            .then(users => {
-                res.locals.users = users;
-                next();
-            })
-            .catch(error => {
-                console.log(`Couldn't get users: ${error.message}`)
-                next(error);
-            })
-   },
-   indexView: (req, res) => {
-        res.render("users/index");
-   },
- 
-   redirectView: (req, res, next) => {
+    redirectView: (req, res, next) => {
         let redirectPath = res.locals.redirect;
         if(redirectPath){
             res.redirect(redirectPath); 
@@ -52,7 +37,8 @@ module.exports = {
                 next();
             } 
             else {
-                console.log(`Could not create account:${error.message}.`);
+                console.log(`Could not create account: ${error.message}.`);
+                req.flash("error",`Could not create account: ${error.message}.`);
                 res.locals.redirect = "/register";
                 next();
             }
@@ -62,10 +48,14 @@ module.exports = {
     login: (req, res) => {
         res.render("login");
     },
+
     authenticate: passport.authenticate("local", {
         successRedirect: "/",
-        failureRedirect: "/login"
+        successFlash: "Successfully logged in!",
+        failureRedirect: "/login",
+        failureFlash: "Could not log in. Your username or password is incorrect."
     }),
+
     logout: (req, res, next) => {
         req.logout();
         res.locals.redirect = "/";

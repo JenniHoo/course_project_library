@@ -1,17 +1,21 @@
 const express = require("express");
 const app = express();
 const router = express.Router();
+
 const mongoose = require("mongoose");
 const layouts = require("express-ejs-layouts");
 const passport = require("passport");
+
 const booksController = require("./controllers/booksController.js");
 const indexController = require("./controllers/indexController.js");
 const usersController = require("./controllers/usersController.js");
 const User = require("./models/user");
+
 const { session } = require("passport");
 const expressSession = require("express-session");
 const cookieParser = require("cookie-parser");
 
+const connectFlash = require("connect-flash");
 
 mongoose.Promise = global.Promise;
 
@@ -37,6 +41,8 @@ router.use(
     })
   );
 
+router.use(connectFlash());
+
 // Passport route
 router.use(passport.initialize());
 router.use(passport.session());
@@ -48,6 +54,7 @@ passport.deserializeUser(User.deserializeUser());
 router.use((req, res, next) => {
     res.locals.loggedIn = req.isAuthenticated();
     res.locals.currentUser = req.user;
+    res.locals.flashMessages = req.flash();
     next();
 });
 
