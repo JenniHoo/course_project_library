@@ -65,7 +65,7 @@ router.post("/login", usersController.authenticate);
 router.get("/logout", usersController.logout, usersController.redirectView)
 
 // Book routes
-router.get("/booklist", booksController.index, booksController.indexView);
+router.get("/books", booksController.index, booksController.indexView);
 router.get("/books/:id", booksController.show, booksController.showView);
 router.post("/books/create", booksController.create, booksController.redirectView);
 router.delete("/books/delete", booksController.delete, booksController.redirectView);

@@ -9,21 +9,19 @@
     </tr>
   </thead>
   <tbody>
-    <% books.forEach(book => { %>
     <tr>
       <td>
-        <%= book.ID %>
+        <%= book.id %>
       </td>
       <td>
         <%= book.name %>
       </td>
       <td>
-        <%= book.writer %>
+        <%= book.author %>
       </td>
       <td>
-        <%= book.shelf %>
+        <%= book.shelfLocation %>
       </td>
     </tr>
-    <% }); %>
   </tbody>
 </table>
