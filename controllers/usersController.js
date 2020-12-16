@@ -47,12 +47,12 @@ module.exports = {
         console.log(newUser)
         User.register(newUser, req.body.password, (error, user) => {
             if(user){
-                console.log(`Account ${user.name} created!`);
+                console.log(`Account ${user.username} created!`);
                 res.locals.redirect = "/";
                 next();
             } 
             else {
-                console.log(`Could not create account: ${error.message}.`);
+                console.log(`Could not create account:${error.message}.`);
                 res.locals.redirect = "/register";
                 next();
             }

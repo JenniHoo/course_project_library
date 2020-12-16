@@ -18,6 +18,15 @@ body {
   top: 0;
 }
 
+#loggedInUser {
+  width: 15vw;
+  font-size: calc(0.7rem + 0.35vw);
+  position: absolute;
+  text-align: center;
+  right: 1%;
+  bottom: 5%;
+}
+
 #title {
   color: #625a56;
   margin: 0;

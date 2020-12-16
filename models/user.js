@@ -17,6 +17,10 @@ const userSchema = new Schema({
     }
 })
 
+userSchema.path("username").validate(function(username) {
+    return username.length <= 15;
+}, "Usernames cannot be more than 15 characters long");
+
 userSchema.plugin(passportLocalMongoose, {
     usernameField: "username"
 });
